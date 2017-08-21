@@ -4,8 +4,8 @@ A very basic RESTful application designed do that someone can monitor the jobs t
 
 
 The paths for the various CRUD functions are below:<br>
-Create (POST): http://34.211.197.80:8080/JobTrackerREST/api/jobs/
-Update (PUT): http://34.211.197.80:8080/JobTrackerREST/api/jobs/{id}
-Show (GET): http://34.211.197.80:8080/JobTrackerREST/api/jobs/{id}
-Index (GET): http://34.211.197.80:8080/JobTrackerREST/api/jobs/
-Delete (DELETE): http://34.211.197.80:8080/JobTrackerREST/api/jobs/{id}
+Create (POST): http://34.211.197.80:8080/JobTrackerREST/api/jobs/ <br>
+Update (PUT): http://34.211.197.80:8080/JobTrackerREST/api/jobs/{id} <br>
+Show (GET): http://34.211.197.80:8080/JobTrackerREST/api/jobs/{id} <br>
+Index (GET): http://34.211.197.80:8080/JobTrackerREST/api/jobs/ <br>
+Delete (DELETE): http://34.211.197.80:8080/JobTrackerREST/api/jobs/{id} <br>
