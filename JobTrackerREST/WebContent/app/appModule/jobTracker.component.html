@@ -1,6 +1,6 @@
 <div class="container" ng-hide="vm.selected">
 	<div class="well">
-		<h1>Job Tracker</h1>
+		<h1>Job Tracker <span class="label label-success">{{vm.jobs.length}}</span></h1>
 		<form>
 			<input type="text" ng-model="job.jobTitle" placeholder="Position" />
 			<input type="text" ng-model="job.company" placeholder="Company" /> <input

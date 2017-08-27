@@ -28,7 +28,7 @@ public class JobController {
 	}
 	
 	@RequestMapping(path="jobs", method=RequestMethod.GET)
-	public List<Job> index() {
+	public List<Job> index(HttpServletResponse res) {
 		return dao.index();
 	}
 	

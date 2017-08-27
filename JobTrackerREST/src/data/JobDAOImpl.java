@@ -53,8 +53,6 @@ public class JobDAOImpl implements JobDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
 		j.setCompany(jNew.getCompany());
 		j.setJobTitle(jNew.getJobTitle());
 		j.setLocation(jNew.getLocation());
