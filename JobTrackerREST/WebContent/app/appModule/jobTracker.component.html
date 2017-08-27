@@ -15,7 +15,7 @@
 				<h4>Position: {{job.jobTitle}}</h4>
 				<h5>Company: {{job.company}}</h5>
 				<h5>Location: {{job.location}}</h5>
-				<h5>Web Site: {{job.urlJob}}</h5>
+				<h5>Web Site: <a href="{{job.urlJob}}" target="_blank">{{job.urlJob}}</a></h5>
 				<button ng-click="vm.setEditJob(job)" class="btn btn-warning">Edit</button>
 				<button ng-click="vm.deleteJob(job.id)" class="btn btn-danger">Delete</button>
 

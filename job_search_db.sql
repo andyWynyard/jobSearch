@@ -12,4 +12,4 @@ CREATE TABLE `job` (
 );
 
 
-GRANT ALL PRIVILEGES ON quizdb.* TO 'student'@'localhost';
+GRANT ALL PRIVILEGES ON job_search_db.* TO 'student'@'localhost';
