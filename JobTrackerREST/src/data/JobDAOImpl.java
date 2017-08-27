@@ -7,6 +7,8 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import entities.Job;
 
 @Transactional
@@ -27,19 +29,36 @@ public class JobDAOImpl implements JobDAO {
 	}
 
 	@Override
-	public Job create(Job job) {
-		em.persist(job);
+	public Job create(String jobJSON) {
+		ObjectMapper om = new ObjectMapper();
+		Job newJob = null;
+		try {
+			newJob = om.readValue(jobJSON, Job.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		em.persist(newJob);
 		em.flush();
-		return em.find(Job.class, job.getId());
+		return em.find(Job.class, newJob.getId());
 	}
 
 	@Override
-	public Job update(int id, Job job) {
+	public Job update(int id, String jobJSON) {
 		Job j = em.find(Job.class, id);
-		j.setCompany(job.getCompany());
-		j.setJobTitle(job.getJobTitle());
-		j.setLocation(job.getLocation());
-		j.setUrlJob(job.getUrlJob());
+		Job jNew = null;
+		ObjectMapper om = new ObjectMapper();
+		try {
+			jNew = om.readValue(jobJSON, Job.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		j.setCompany(jNew.getCompany());
+		j.setJobTitle(jNew.getJobTitle());
+		j.setLocation(jNew.getLocation());
+		j.setUrlJob(jNew.getUrlJob());
 		return j;
 	}
 

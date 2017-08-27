@@ -1,0 +1,59 @@
+<div class="container" ng-hide="vm.selected">
+	<div class="well">
+		<h1>Job Tracker</h1>
+		<form>
+			<input type="text" ng-model="job.jobTitle" placeholder="Position" />
+			<input type="text" ng-model="job.company" placeholder="Company" /> <input
+				type="text" ng-model="job.location" placeholder="Location" /> <input
+				type="text" ng-model="job.urlJob" placeholder="Web Site" /> <input
+				type="submit" value="Add Job" class="btn btn-success"
+				ng-click="vm.addJob(job); job={}" />
+		</form>
+
+		<div ng-repeat="job in vm.jobs">
+			<div class="well">
+				<h4>Position: {{job.jobTitle}}</h4>
+				<h5>Company: {{job.company}}</h5>
+				<h5>Location: {{job.location}}</h5>
+				<h5>Web Site: {{job.urlJob}}</h5>
+				<button ng-click="vm.setEditJob(job)" class="btn btn-warning">Edit</button>
+				<button ng-click="vm.deleteJob(job.id)" class="btn btn-danger">Delete</button>
+
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+</div>
+
+<div class="container" ng-show="vm.selected">
+	<div class="well">
+		<h1>Job Tracker</h1>
+		<form><div>
+		<h5>Job Title</h5>
+		<input type="text" ng-model="vm.selected.jobTitle"/> 
+		</div>
+		<div>
+		<h5>Company</h5>
+		<input type="text" ng-model="vm.selected.company"/> 
+		</div>
+		<div>
+		<h5>Location</h5>
+		<input type="text" ng-model="vm.selected.location"/> 
+		</div>
+		<div>
+		<h5>URL</h5>
+		<input type="text" ng-model="vm.selected.urlJob" /> 
+		</div>
+			
+			<input type="submit"value="Save" class="btn btn-warning" ng-click="vm.editJob(vm.selected.id, vm.selected); job = {}; vm.selected = null" /> 
+			<input type="submit" value="Cancel" class="btn btn-success" ng-click="vm.selected = null" />
+		</form>
+
+	</div>
+
+
+</div>

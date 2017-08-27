@@ -39,27 +39,13 @@ public class JobController {
 	
 	@RequestMapping(path="jobs", method=RequestMethod.POST)
 	public Job create(@RequestBody String jobJSON, HttpServletResponse res) {
-		ObjectMapper om = new ObjectMapper();
-		Job newJob = null;
-		try {
-			newJob = om.readValue(jobJSON, Job.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return dao.create(newJob);
+		return dao.create(jobJSON);
 		
 	}
 	
 	@RequestMapping(path="jobs/{id}", method=RequestMethod.PUT)
 	public Job update(@PathVariable int id,@RequestBody String jobJSON, HttpServletResponse res) {
-		ObjectMapper om = new ObjectMapper();
-		Job job = null;
-		try {
-			job = om.readValue(jobJSON, Job.class);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return dao.update(id, job);
+		return dao.update(id, jobJSON);
 	}
 	
 	@RequestMapping(path="jobs/{id}", method=RequestMethod.DELETE)
