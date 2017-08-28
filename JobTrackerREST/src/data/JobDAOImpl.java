@@ -50,14 +50,16 @@ public class JobDAOImpl implements JobDAO {
 		ObjectMapper om = new ObjectMapper();
 		try {
 			jNew = om.readValue(jobJSON, Job.class);
+			j.setCompany(jNew.getCompany());
+			j.setJobTitle(jNew.getJobTitle());
+			j.setLocation(jNew.getLocation());
+			j.setUrlJob(jNew.getUrlJob());
+			return j;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		j.setCompany(jNew.getCompany());
-		j.setJobTitle(jNew.getJobTitle());
-		j.setLocation(jNew.getLocation());
-		j.setUrlJob(jNew.getUrlJob());
-		return j;
+
 	}
 
 	@Override
