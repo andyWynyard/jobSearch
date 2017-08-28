@@ -1,11 +1,10 @@
-angular.module('appModule').component('jobTracker', {
+angular.module('appModule')
+	.component('jobTracker', {
 	templateUrl : 'app/appModule/jobTracker.component.html',
 	controller : function(jobService) {
 		var vm = this;
 		
 		vm.selected = null;
-
-
 
 		vm.jobs = [];
 

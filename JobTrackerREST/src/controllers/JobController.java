@@ -29,6 +29,7 @@ public class JobController {
 	
 	@RequestMapping(path="jobs", method=RequestMethod.GET)
 	public List<Job> index(HttpServletResponse res) {
+		//res.addHeader("Access-Control-Allow-Origin", "*");
 		return dao.index();
 	}
 	
@@ -39,12 +40,14 @@ public class JobController {
 	
 	@RequestMapping(path="jobs", method=RequestMethod.POST)
 	public Job create(@RequestBody String jobJSON, HttpServletResponse res) {
+		//res.addHeader("Access-Control-Allow-Origin", "*");
 		return dao.create(jobJSON);
 		
 	}
 	
 	@RequestMapping(path="jobs/{id}", method=RequestMethod.PUT)
 	public Job update(@PathVariable int id,@RequestBody String jobJSON, HttpServletResponse res) {
+		//res.addHeader("Access-Control-Allow-Origin", "*");
 		return dao.update(id, jobJSON);
 	}
 	

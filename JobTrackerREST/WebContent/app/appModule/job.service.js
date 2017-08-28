@@ -1,4 +1,5 @@
-angular.module('appModule').factory('jobService', function($http) {
+angular.module('appModule')
+	.factory('jobService', function($http) {
 	var service = {};
 
 	// var BASE_URL = 'http://localhost:8080/JobTrackerREST/api/jobs/';
@@ -6,14 +7,14 @@ angular.module('appModule').factory('jobService', function($http) {
 	service.index = function() {
 		return $http({
 			method : 'GET',
-			url : 'http://localhost:8080/JobTrackerREST/api/jobs'
+			url : 'api/jobs'
 		})
 	};
 
 	service.create = function(job) {
 		return $http({
 			method : 'POST',
-			url : 'http://localhost:8080/JobTrackerREST/api/jobs',
+			url : 'api/jobs',
 			headers : {
 				'Content-Type' : 'application/json'
 			},
@@ -25,7 +26,7 @@ angular.module('appModule').factory('jobService', function($http) {
 	service.update = function(id, job) {
 	    return $http({
 	      method : 'PUT',
-	      url : "http://localhost:8080/JobTrackerREST/api/jobs/" + id,
+	      url : "api/jobs/" + id,
 	      headers : {
 	        'Content-Type' : 'application/json'
 	      },
@@ -36,7 +37,7 @@ angular.module('appModule').factory('jobService', function($http) {
 	service.destroy = function(id) {
 		return $http({
 			method : 'DELETE',
-			url : "http://localhost:8080/JobTrackerREST/api/jobs/" + id
+			url : "api/jobs/" + id
 		})
 	}
 
